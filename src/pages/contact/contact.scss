@@ -1,13 +1,9 @@
 page-contact {
-  ion-title{
-    background-image: linear-gradient(white 50%, black)!important;
-    text-align: center;
+  ion-content{
+    background-image: linear-gradient(white 50%, gray) !important;
   }
-  //.cards-bg{
-  //  background-image: linear-gradient(black 50%, white);
-  //}
-  ion-content {
-    background-image: linear-gradient(white 50%, black) !important;
+  ion-item{
+    background-image: linear-gradient(black 50%, white) !important;
   }
   ion-img{
     border-radius: 50%;
@@ -18,5 +14,8 @@ page-contact {
   ion-icon{
     font-size: 40px;
     color: black!important;
+  }
+  h1{
+    color: white!important;
   }
 }
