@@ -1,0 +1,22 @@
+page-contact {
+  ion-title{
+    background-image: linear-gradient(white 50%, black)!important;
+    text-align: center;
+  }
+  //.cards-bg{
+  //  background-image: linear-gradient(black 50%, white);
+  //}
+  ion-content {
+    background-image: linear-gradient(white 50%, black) !important;
+  }
+  ion-img{
+    border-radius: 50%;
+  }
+  p{
+    color: black!important;
+  }
+  ion-icon{
+    font-size: 40px;
+    color: black!important;
+  }
+}

@@ -1,0 +1,44 @@
+@import url('https://fonts.googleapis.com/css?family=Pacifico');
+page-home {
+  ion-title{
+    background-image: linear-gradient(white 50%, black);
+    text-align: center;
+  }
+  .bg-image{
+    //background-image: url("../../assets/imgs/background.jpg");
+    //background-repeat: no-repeat;
+    //background-position: left;
+    //background-size: cover;
+    background-image: linear-gradient(black 50%, white);
+  }
+  ::-webkit-scrollbar{
+    display:none;
+  }
+  .head{
+    position: absolute;
+    display: block;
+    color: #E94B3C;
+    top: 20%;
+    left: 50%;
+    transform: translate(-50% , -50%);
+    width: 95%;
+  }
+  .head h1{
+    font-size: 6vh!important;
+    font-weight: lighter!important;
+    font-family: 'Pacifico', cursive;
+    color: gray;
+  }
+  .topButtons {
+    display: flex;
+    flex-direction: row;
+  }
+  .topButtons button {
+    flex: 1;
+  }
+  .toolbar-background {
+    background-color: red;
+    background-image: linear-gradient(black 50%, white);
+    color: black;
+  }
+}

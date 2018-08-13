@@ -1,0 +1,22 @@
+page-about {
+  ion-title{
+    background-image: linear-gradient(white 50%, black);
+    text-align: center;
+  }
+  .cards-bg{
+    background-image: linear-gradient(black 50%, white);
+  }
+  ion-card-title{
+    color: gray!important;
+  }
+  ion-card-content{
+    background-image: linear-gradient(black 50%, white);
+  }
+  ion-item{
+    color: whitesmoke!important;
+    background-image: linear-gradient(black 90%, white);
+  }
+  strong{
+    color: purple!important;
+  }
+}

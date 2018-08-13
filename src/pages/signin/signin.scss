@@ -1,0 +1,66 @@
+@import url('https://fonts.googleapis.com/css?family=Pacifico');
+page-signin {
+  .bg{
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(160deg, black 50%, white);
+  }
+  ::-webkit-scrollbar{
+    display:none;
+  }
+  .head{
+    position: absolute;
+    display: block;
+    color: #fff;
+    top: 15%;
+    left: 50%;
+    transform: translate(-50% , -50%);
+    width: 100%;
+  }
+  .head h1{
+    font-size: 7vh!important;
+    font-weight: lighter!important;
+    font-family: 'Pacifico', cursive;
+  }
+  .head h5{
+    font-family: -apple-system, "Roboto", BlinkMacSystemFont, "Segoe UI", "Helvetica Neue", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+    padding-top: 2px;
+    font-weight: 200;
+    font-size: 2vh;
+  }
+  .inputs{
+    position: absolute;
+    display: block;
+    top: 60%;
+    left: 50%;
+    transform: translate(-50% , -50%);
+    width: 80%;
+    color: #fff;
+    opacity: 0.5;
+  }
+  ion-item{
+    background: transparent!important;
+    border: 1px solid #fff!important;
+    ion-input{
+      color: #fff!important;
+    }
+    ion-label{
+      color: #fff!important;
+    }
+    .item-inner{
+      border: 0!important;
+    }
+  }
+  button{
+    position: absolute;
+    display: block;
+    top: 50%;
+    background: #fff!important;
+    border: 1px solid #fff;
+    box-shadow: none;
+    color: #9A9595!important;
+  }
+  .backBtn {
+    background: linear-gradient(black, blue) !important;
+  }
+}
