@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import {AboutPage} from "../about/about";
 
 /**
  * Generated class for the ContactPage page.
@@ -22,6 +23,12 @@ export class ContactPage {
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad ContactPage');
+  }
+
+  swipeEvent(e){
+    if(e.direction==2){
+      this.navCtrl.push(AboutPage);
+    }
   }
 
 }

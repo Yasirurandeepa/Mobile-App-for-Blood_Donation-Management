@@ -35,7 +35,8 @@ export class SigninPage {
   }
 
   signInUser(){
-    this.fire.auth.signInWithEmailAndPassword(this.email.value, this.password.value).then(data => {
+    if(this.fire.auth.currentUser.emailVerified){
+      this.fire.auth.signInWithEmailAndPassword(this.email.value, this.password.value).then(data => {
         console.log('got data', this.fire.auth.currentUser);
         this.alert('Success you\'re logged in');
       }).catch(error => {
@@ -43,6 +44,9 @@ export class SigninPage {
         this.alert(error.message);
       });
       console.log('Would Sign in user with', this.email.value, this.password.value);
+    }else{
+      this.alert('Email not Verified!');
+    }
   }
 
   forgotPassword(){

@@ -1,5 +1,5 @@
 <ion-content class="cards-bg">
-
+<div (swipe)="swipeEvent($event)">
   <ion-card>
 
     <img src="../../assets/imgs/fact1.jpg"/>
@@ -95,16 +95,16 @@
         Facts about donors
       </ion-card-title>
       <ion-item-group>
-      <p>
-        <ion-item text-wrap>1. The number one reason for donors to give blood is because they like to help others.....</ion-item>
-        <ion-item text-wrap>2. Two most common reasons cited by people who don't give blood are: "Never thought about it" and "I don't like needles."</ion-item>
-        <ion-item text-wrap>3. One donation can help save the lives up to 3 people.</ion-item>
-        <ion-item text-wrap>4. If you began donating blood at age 18 and donated every 90 days until you reached 60 you would have donated 30 gallons of blood, potentially helping save more than<strong>500 lives</strong></ion-item>
-        <ion-item text-wrap>5. 1 pint of blood can save up to 3 lives.</ion-item>
-        <ion-item text-wrap>6. O- type blood is needed in emergencies before the patient's blood type is known and with newborns who need blood.</ion-item>
-        <ion-item text-wrap>7. 35% of people have O type blood.(positive or negative).</ion-item>
-        <ion-item text-wrap>8. 0.4% of people have AB- type blood. AB- type blood donors are universal donors of plasma, which is often used in emergencies, for newborns and for patients requiring massive transfusions.</ion-item>
-        <ion-item text-wrap style="font-weight: bold!important;"><p>There are 4 main blood types: <strong>A, B, AB and O.</strong><br>
+        <p>
+          <ion-item text-wrap>1. The number one reason for donors to give blood is because they like to help others.....</ion-item>
+          <ion-item text-wrap>2. Two most common reasons cited by people who don't give blood are: "Never thought about it" and "I don't like needles."</ion-item>
+          <ion-item text-wrap>3. One donation can help save the lives up to 3 people.</ion-item>
+          <ion-item text-wrap>4. If you began donating blood at age 18 and donated every 90 days until you reached 60 you would have donated 30 gallons of blood, potentially helping save more than<strong>500 lives</strong></ion-item>
+          <ion-item text-wrap>5. 1 pint of blood can save up to 3 lives.</ion-item>
+          <ion-item text-wrap>6. O- type blood is needed in emergencies before the patient's blood type is known and with newborns who need blood.</ion-item>
+          <ion-item text-wrap>7. 35% of people have O type blood.(positive or negative).</ion-item>
+          <ion-item text-wrap>8. 0.4% of people have AB- type blood. AB- type blood donors are universal donors of plasma, which is often used in emergencies, for newborns and for patients requiring massive transfusions.</ion-item>
+          <ion-item text-wrap style="font-weight: bold!important;"><p>There are 4 main blood types: <strong>A, B, AB and O.</strong><br>
         In 1901, Karl Landsteiner, an australian physician, discovers the first three human blood groups. On his birthday(14th June) "World Blood Donors Day" celebrates.</p></ion-item>
       </ion-item-group>
     </ion-card-content>
@@ -231,5 +231,5 @@
     </ion-card-content>
 
   </ion-card>
-
+</div>
 </ion-content>
