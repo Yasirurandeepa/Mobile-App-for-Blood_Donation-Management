@@ -6,18 +6,32 @@
 -->
 
 <ion-content no-padding>
-    <ion-item no-lines text-wrap>
-      <ion-img item-start width="90" height="90" src="../../assets/imgs/yasiru.jpg"></ion-img>
+  <div (swipe)="swipeEvent($event)" text-wrap>
+    <ion-row justify-content-center>
       <h1>Yasiru Randeepa</h1>
-      <h2>Developer</h2>
-    </ion-item>
-  <ion-item no-lines text-wrap>
-    <ion-icon name="ios-home" style="font-size: 25px; color: white!important;"></ion-icon><p style="color: white!important;">Address: "Shantha", Thanabaddegama, Ethkandura. </p>
-    <ion-icon name="ios-call" style="font-size: 25px; color: white!important;"></ion-icon> <p>Mobile: 0716220786</p>
-    <a href="mailto:yasirurandeepa.yr@gmail.com"><ion-icon name="ios-mail" style="font-size: 25px;"></ion-icon></a><p>Email: yasirurandeepa.yr@gmail.com</p>
-  </ion-item>
+    </ion-row>
+    <ion-row justify-content-center>
+      <ion-img item-start width="100" height="100" src="../../assets/imgs/yasiru.jpg"></ion-img>
+    </ion-row>
+    <!--<ion-icon name="ios-home" style="font-size: 25px;"></ion-icon>-->
+    <!--<ion-row>-->
+    <!--<p style="color: white!important;">Address: "Shantha", Thanabaddegama, Ethkandura. </p>-->
+    <!--</ion-row>-->
+    <ion-row justify-content-center>
+      <ion-icon name="ios-mail" style=""></ion-icon>
+    </ion-row>
+    <ion-row justify-content-center>
+      <p><a href="mailto:yasirurandeepa.yr@gmail.com" style="color: white; text-decoration: none;">Email: yasirurandeepa.yr@gmail.com</a></p>
+    </ion-row>
+    <ion-row justify-content-center>
+      <ion-icon align-items-center name="ios-call"></ion-icon>
+    </ion-row>
+    <ion-row justify-content-center>
+      <p><a href="tel:0716220786" style="color: white; text-decoration: none;">Mobile:0716220786</a> </p>
+    </ion-row>
+  </div>
 </ion-content>
-<ion-footer>
+<ion-footer (swipe)="swipeEvent($event)">
   <ion-row>
     <ion-row>
       <p style="text-align: center;">I am experienced in leveraging agile frameworks to provide a robust synopsis for high level overviews.
@@ -49,6 +63,6 @@
 
   <p class="copyright" style="text-align: center">
     &copy; {{test | date: 'yyyy'}} <a href="https://www.linkedin.com/in/yasiru- randeepa-760449129/">Yasiru Randeepa</a>
-    </p>
+  </p>
 </ion-footer>
 

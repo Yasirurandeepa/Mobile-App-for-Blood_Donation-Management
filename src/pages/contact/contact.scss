@@ -1,21 +1,21 @@
 page-contact {
   ion-content{
-    background-image: linear-gradient(white 50%, gray) !important;
-  }
-  ion-item{
-    background-image: linear-gradient(black 50%, white) !important;
+      background-image: url("../../assets/imgs/color.gif");
+      background-repeat: no-repeat;
+      background-position: left;
+      background-size: cover;
   }
   ion-img{
     border-radius: 50%;
   }
   p{
-    color: black!important;
+    color: white!important;
   }
   ion-icon{
-    font-size: 40px;
-    color: black!important;
+    font-size: 35px;
+    color: gray!important;
   }
   h1{
-    color: white!important;
+    color: whitesmoke!important;
   }
 }

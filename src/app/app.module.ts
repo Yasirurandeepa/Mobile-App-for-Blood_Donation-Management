@@ -16,9 +16,9 @@ import {AboutPage} from "../pages/about/about";
 import {ContactPage} from "../pages/contact/contact";
 
 const firebaseAuth = {
-  apiKey: "Your Api Key",
-  authDomain: "Your auth domain",
-  databaseURL: "URL of the database",
+  apiKey: "AIzaSyB7X66peYIx9nhk0o9_tz40V6zY84aLYD8",
+  authDomain: "blood-77479.firebaseapp.com",
+  databaseURL: "https://blood-77479.firebaseio.com",
   projectId: "blood-77479",
   storageBucket: "blood-77479.appspot.com",
   messagingSenderId: "46225286869"
