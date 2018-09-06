@@ -1,9 +1,9 @@
 @import url('https://fonts.googleapis.com/css?family=Pacifico');
 page-signin {
-  .bg{
+  ion-content{
     width: 100%;
     height: 100%;
-    background: linear-gradient(160deg, black 50%, white);
+    background: linear-gradient(160deg, black 50%, white) !important;
   }
   ::-webkit-scrollbar{
     display:none;
@@ -12,7 +12,7 @@ page-signin {
     position: absolute;
     display: block;
     color: #fff;
-    top: 15%;
+    top: 10%;
     left: 50%;
     transform: translate(-50% , -50%);
     width: 100%;

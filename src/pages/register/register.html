@@ -10,9 +10,9 @@
       <h1>Welcome to Upakara</h1>
       <h5>Register Page</h5>
     </div>
-    <div class="inputs">
+    <div class="inputs" *ngIf="isFirstForm">
       <ion-item>
-        <ion-input type="text" placeholder="Username"></ion-input>
+        <ion-input type="text" placeholder="Username" #username></ion-input>
       </ion-item>
       <ion-item>
         <ion-input type="text" placeholder="Email" #email></ion-input>
@@ -21,12 +21,85 @@
         <ion-input type="password" placeholder="Password" #password></ion-input>
       </ion-item>
       <ion-item class="pass">
-        <ion-input type="password" placeholder="Re-enter Password"></ion-input>
+        <ion-input type="password" placeholder="Re-enter Password" #confirmPassword></ion-input>
       </ion-item>
-      <button ion-button block (click)="registerUser()"><b>Register</b></button>
-      <button ion-button block (click)="login()"><b>Login</b></button>
+      <button ion-button block (click)="confirmFirstForm()" color="dark"><b>Next</b></button>
+      <button ion-button block (click)="login()"  color="dark"><b>Login</b></button>
       <div class="fb" text-center>
-        <ion-icon name="logo-facebook" text-center>Signup with your FACEBOOk account</ion-icon>
+        <ion-icon name="logo-facebook" text-center>Signup with your FACEBOOK account</ion-icon>
+      </div>
+    </div>
+    <div class="inputs" *ngIf="isSecondForm">
+      <ion-item>
+        <ion-label>Gender</ion-label>
+        <ion-select [(ngModel)]="gender" style="color: white;">
+          <ion-option value="m">Male</ion-option>
+          <ion-option value="f">Female</ion-option>
+        </ion-select>
+      </ion-item>
+      <ion-item>
+        <ion-input type="text" placeholder="NIC" #nic></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label>Blood Group</ion-label>
+        <ion-select [(ngModel)]="blood_group">
+          <ion-option value="A+">A+</ion-option>
+          <ion-option value="A-">A-</ion-option>
+          <ion-option value="B+">B+</ion-option>
+          <ion-option value="B-">B-</ion-option>
+          <ion-option value="O+">O+</ion-option>
+          <ion-option value="O-">O-</ion-option>
+          <ion-option value="AB+">AB+</ion-option>
+          <ion-option value="AB-">AB-</ion-option>
+        </ion-select>
+      </ion-item>
+      <button ion-button block (click)="confirmSecondForm()" color="dark"><b>Next</b></button>
+      <button ion-button block (click)="backtoFirstForm()" color="dark"><b>Back</b></button>
+      <div class="fb" text-center>
+        <ion-icon name="logo-facebook" text-center>Signup with your FACEBOOK account</ion-icon>
+      </div>
+    </div>
+    <div class="inputs" *ngIf="isThirdForm">
+      <ion-item>
+        <ion-input type="text" placeholder="Contact Number" #contact_number></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-input type="text" placeholder="Address" #address></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label>Distrcit</ion-label>
+        <ion-select [(ngModel)]="district">
+          <ion-option value="ampara">Ampara</ion-option>
+          <ion-option value="anuradhapura">Anuradhapura</ion-option>
+          <ion-option value="badulla">Badulla</ion-option>
+          <ion-option value="batticaloa">Batticaloa</ion-option>
+          <ion-option value="colombo">Colombo</ion-option>
+          <ion-option value="galle">Galle</ion-option>
+          <ion-option value="gampaha">Gampaha</ion-option>
+          <ion-option value="hambanthota">Hambanthota</ion-option>
+          <ion-option value="jaffna">Jaffna</ion-option>
+          <ion-option value="kaluthara">Kaluthara</ion-option>
+          <ion-option value="kandy">Kandy</ion-option>
+          <ion-option value="kegalle">Kegalle</ion-option>
+          <ion-option value="kilinochchi">Kilinochchi</ion-option>
+          <ion-option value="kurunagala">Kurunagala</ion-option>
+          <ion-option value="mannar">Mannar</ion-option>
+          <ion-option value="mathale">Mathale</ion-option>
+          <ion-option value="mathara">Mathara</ion-option>
+          <ion-option value="monaragala">Monaragala</ion-option>
+          <ion-option value="mullathivu">Mullathivu</ion-option>
+          <ion-option value="nuwara_eliya">Nuwara eliya</ion-option>
+          <ion-option value="polonnaruwa">Polonnaruwa</ion-option>
+          <ion-option value="puttalam">Puttalam</ion-option>
+          <ion-option value="rathnapura">Rathnapura</ion-option>
+          <ion-option value="trincomalle">Trincomalle</ion-option>
+          <ion-option value="vavniya">Vavniya</ion-option>
+        </ion-select>
+      </ion-item>
+      <button ion-button block (click)="register()" color="dark"><b>Register</b></button>
+      <button ion-button block (click)="backtoSecondForm()" color="dark"><b>Back</b></button>
+      <div class="fb" text-center *ngIf="isFirstForm">
+        <ion-icon name="logo-facebook" text-center>Signup with your FACEBOOK account</ion-icon>
       </div>
     </div>
   </div>

@@ -5,7 +5,7 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 
 import * as firebase from 'firebase';
 
-import { HomePage } from '../pages/home/home';
+
 import {TabsPage} from "../pages/tabs/tabs";
 
 const config = {

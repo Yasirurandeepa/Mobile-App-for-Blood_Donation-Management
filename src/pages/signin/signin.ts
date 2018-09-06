@@ -1,6 +1,7 @@
 import {Component, ViewChild} from '@angular/core';
 import {AlertController, IonicPage, NavController, NavParams} from 'ionic-angular';
 import {AngularFireAuth} from "angularfire2/auth";
+import {RegisterPage} from "../register/register";
 
 /**
  * Generated class for the SigninPage page.
@@ -47,6 +48,10 @@ export class SigninPage {
     }else{
       this.alert('Email not Verified!');
     }
+  }
+
+  signUpUser(){
+    this.navCtrl.push(RegisterPage);
   }
 
   forgotPassword(){

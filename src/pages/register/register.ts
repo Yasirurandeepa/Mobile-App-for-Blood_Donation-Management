@@ -17,10 +17,19 @@ import {AngularFireAuth} from "angularfire2/auth";
 })
 export class RegisterPage {
 
+  @ViewChild("username") username;
   @ViewChild("email") email;
   @ViewChild("password") password;
+  @ViewChild("confirmPassword") confirmPassword;
+
+  isFirstForm: boolean;
+  isSecondForm: boolean;
+  isThirdForm: boolean;
 
   constructor(public navCtrl: NavController, public navParams: NavParams, private fire: AngularFireAuth, private alertCtrl: AlertController) {
+    this.isFirstForm = true;
+    this.isSecondForm = false;
+    this.isThirdForm = false;
   }
 
   ionViewDidLoad() {
@@ -37,6 +46,30 @@ export class RegisterPage {
       subTitle: message,
       buttons: ['OK']
     }).present();
+  }
+
+  confirmFirstForm(){
+    this.isFirstForm = false;
+    this.isSecondForm = true;
+  }
+
+  confirmSecondForm(){
+    this.isThirdForm = true;
+    this.isSecondForm = false;
+  }
+
+  register(){
+
+  }
+
+  backtoFirstForm(){
+    this.isSecondForm = false;
+    this.isFirstForm = true;
+  }
+
+  backtoSecondForm(){
+    this.isThirdForm = false;
+    this.isSecondForm = true;
   }
 
   registerUser(){
