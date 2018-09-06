@@ -37,7 +37,9 @@
     "ionicons": "3.0.0",
     "rxjs": "5.5.11",
     "sw-toolbox": "3.6.0",
-    "zone.js": "0.8.26"
+    "zone.js": "0.8.26",
+    "email-validator": "^1.1.1",
+    "password-validator": "^4.0.0"
   },
   "devDependencies": {
     "@ionic/app-scripts": "3.1.11",

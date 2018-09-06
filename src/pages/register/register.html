@@ -12,37 +12,40 @@
     </div>
     <div class="inputs" *ngIf="isFirstForm">
       <ion-item>
-        <ion-input type="text" placeholder="Username" #username></ion-input>
+        <ion-input type="text" placeholder=Username #username></ion-input>
       </ion-item>
+      <p ion-text color="danger" style="font-size: 8px; font-weight: bold; padding: 0; margin: 0;">{{valUsername}}</p>
       <ion-item>
         <ion-input type="text" placeholder="Email" #email></ion-input>
       </ion-item>
-      <ion-item class="pass">
+      <p ion-text color="danger" style="font-size: 8px; font-weight: bold; padding: 0; margin: 0;">{{valEmail}}</p>
+      <ion-item>
         <ion-input type="password" placeholder="Password" #password></ion-input>
       </ion-item>
-      <ion-item class="pass">
-        <ion-input type="password" placeholder="Re-enter Password" #confirmPassword></ion-input>
+      <p ion-text color="danger" style="font-size: 8px; font-weight: bold; padding: 0; margin: 0;">{{valPassword}}</p>
+      <ion-item>
+        <ion-input type="password" placeholder="Confirm Password" #confirmPassword></ion-input>
       </ion-item>
+      <p ion-text color="danger" style="font-size: 8px; font-weight: bold; padding: 0; margin: 0;">{{valConfirmPassword}}</p>
       <button ion-button block (click)="confirmFirstForm()" color="dark"><b>Next</b></button>
       <button ion-button block (click)="login()"  color="dark"><b>Login</b></button>
-      <div class="fb" text-center>
-        <ion-icon name="logo-facebook" text-center>Signup with your FACEBOOK account</ion-icon>
-      </div>
     </div>
     <div class="inputs" *ngIf="isSecondForm">
       <ion-item>
         <ion-label>Gender</ion-label>
-        <ion-select [(ngModel)]="gender" style="color: white;">
+        <ion-select [(ngModel)]="gender" style="color: white;" (ionchange)="filterGender(gender)">
           <ion-option value="m">Male</ion-option>
           <ion-option value="f">Female</ion-option>
         </ion-select>
       </ion-item>
+      <p ion-text color="danger" style="font-size: 8px; font-weight: bold; padding: 0; margin: 0;">{{valGender}}</p>
       <ion-item>
         <ion-input type="text" placeholder="NIC" #nic></ion-input>
       </ion-item>
+      <p ion-text color="danger" style="font-size: 8px; font-weight: bold; padding: 0; margin: 0;">{{valNIC}}</p>
       <ion-item>
         <ion-label>Blood Group</ion-label>
-        <ion-select [(ngModel)]="blood_group">
+        <ion-select [(ngModel)]="blood_group" (ionchange)="filterBloodGroup(blood_group)">
           <ion-option value="A+">A+</ion-option>
           <ion-option value="A-">A-</ion-option>
           <ion-option value="B+">B+</ion-option>
@@ -53,22 +56,22 @@
           <ion-option value="AB-">AB-</ion-option>
         </ion-select>
       </ion-item>
+      <p ion-text color="danger" style="font-size: 8px; font-weight: bold; padding: 0; margin: 0;">{{valBloodGroup}}</p>
       <button ion-button block (click)="confirmSecondForm()" color="dark"><b>Next</b></button>
       <button ion-button block (click)="backtoFirstForm()" color="dark"><b>Back</b></button>
-      <div class="fb" text-center>
-        <ion-icon name="logo-facebook" text-center>Signup with your FACEBOOK account</ion-icon>
-      </div>
     </div>
     <div class="inputs" *ngIf="isThirdForm">
       <ion-item>
         <ion-input type="text" placeholder="Contact Number" #contact_number></ion-input>
       </ion-item>
+      <p ion-text color="danger" style="font-size: 8px; font-weight: bold; padding: 0; margin: 0;">{{valContact}}</p>
       <ion-item>
         <ion-input type="text" placeholder="Address" #address></ion-input>
       </ion-item>
+      <p ion-text color="danger" style="font-size: 8px; font-weight: bold; padding: 0; margin: 0;">{{valAddress}}</p>
       <ion-item>
         <ion-label>Distrcit</ion-label>
-        <ion-select [(ngModel)]="district">
+        <ion-select [(ngModel)]="district" (ionchange)="filterDistrict(district)">
           <ion-option value="ampara">Ampara</ion-option>
           <ion-option value="anuradhapura">Anuradhapura</ion-option>
           <ion-option value="badulla">Badulla</ion-option>
@@ -96,6 +99,7 @@
           <ion-option value="vavniya">Vavniya</ion-option>
         </ion-select>
       </ion-item>
+      <p ion-text color="danger" style="font-size: 8px; font-weight: bold; padding: 0; margin: 0;">{{valDistrict}}</p>
       <button ion-button block (click)="register()" color="dark"><b>Register</b></button>
       <button ion-button block (click)="backtoSecondForm()" color="dark"><b>Back</b></button>
       <div class="fb" text-center *ngIf="isFirstForm">
