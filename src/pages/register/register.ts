@@ -4,6 +4,7 @@ import {SigninPage} from "../signin/signin";
 import {AngularFireAuth} from "angularfire2/auth";
 import * as EmailValidator from 'email-validator';
 import * as passwordValidator from 'password-validator';
+import {UserProvider} from "../../providers/user/user";
 
 /**
  * Generated class for the RegisterPage page.
@@ -52,7 +53,8 @@ export class RegisterPage {
   district: any;
   valThirdForm: boolean;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, private fire: AngularFireAuth, private alertCtrl: AlertController) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, private fire: AngularFireAuth, private alertCtrl: AlertController,
+              private user: UserProvider) {
 
     this.type = this.navParams.get('type') as string;
 
@@ -176,9 +178,38 @@ export class RegisterPage {
     }if(this.valThirdForm==true){
       this.isThirdForm = false;
       if(this.type == 'seeker'){
+        this.user.addUserDonor({
+          username: this.username.value,
+          password: this.password.value,
+          type: "Donor"
+        }).subscribe(
+          result => {
+            //this.router.navigate(['slider']);
+          }, error => {
+            console.log(error);
+          }
+        );
+        this.user.addDonor({
+          username: this.username.value,
+          email: this.email.value,
+          gender: this.gender.value,
+          nic: this.nic.value,
+          blood_group: this.blood_group,
+          contact_no: this.contact_number.value,
+          address: this.address,
+          district: this.district,
+          type: "Donor"
+        }).subscribe(
+          result => {
+            this.alert("You have successfully registered as a donor!")
+
+          }, error => {
+            console.log(error);
+          }
+        );
+      }else if(this.type == 'donor'){
 
       }
-      this.alert("You have successfully registered!")
     }
   }
 
