@@ -19,6 +19,8 @@ import * as passwordValidator from 'password-validator';
 })
 export class RegisterPage {
 
+  type: string;
+
   @ViewChild("username") username;
   @ViewChild("email") email;
   @ViewChild("password") password;
@@ -51,6 +53,9 @@ export class RegisterPage {
   valThirdForm: boolean;
 
   constructor(public navCtrl: NavController, public navParams: NavParams, private fire: AngularFireAuth, private alertCtrl: AlertController) {
+
+    this.type = this.navParams.get('type') as string;
+
     this.isFirstForm = true;
     this.isSecondForm = false;
     this.isThirdForm = false;
@@ -170,6 +175,9 @@ export class RegisterPage {
       this.valThirdForm = false;
     }if(this.valThirdForm==true){
       this.isThirdForm = false;
+      if(this.type == 'seeker'){
+
+      }
       this.alert("You have successfully registered!")
     }
   }
