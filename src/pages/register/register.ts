@@ -22,6 +22,8 @@ export class RegisterPage {
 
   type: string;
 
+  schema: any;
+
   @ViewChild("username") username;
   @ViewChild("email") email;
   @ViewChild("password") password;
@@ -29,6 +31,11 @@ export class RegisterPage {
   @ViewChild("nic") nic;
   @ViewChild("contact_number") contact_number;
   @ViewChild("address") address;
+
+  Username: string;
+  Email: string;
+  Password: string;
+  NIC: string;
 
   isFirstForm: boolean;
   isSecondForm: boolean;
@@ -66,6 +73,17 @@ export class RegisterPage {
     this.district = '';
     this.blood_group = '';
     this.initializeFirstForm();
+
+    // Add properties to it
+    this.schema = new passwordValidator;
+    this.schema
+      .is().min(8)                                    // Minimum length 8
+      .is().max(100)                                  // Maximum length 100
+      .has().uppercase()                              // Must have uppercase letters
+      .has().lowercase()                              // Must have lowercase letters
+      .has().digits()                                 // Must have digits
+      .has().not().spaces()                           // Should not have spaces
+      .is().not().oneOf(['Passw0rd', 'Password123']); // Blacklist these values
   }
 
   ionViewDidLoad() {
@@ -123,7 +141,20 @@ export class RegisterPage {
     }if(this.confirmPassword.value==''){
       this.valConfirmPassword = 'Required Field!';
       this.valFirstForm = false;
+    }if(this.password.value.length<8){
+      console.log(this.schema.validate(this.password.value, { list: true }));
+      this.valPassword = "Password must contain atleast 8 characters";
+      this.valFirstForm = false;
+    }else if(!this.schema.validate(this.password.value)){
+      this.valPassword = "Password must contain digits, simple and capital letters and not contain any spaces";
+      this.valFirstForm = false;
+    }else if(this.password.value!=this.confirmPassword.value){
+      this.valConfirmPassword = "password mismatched";
+      this.valFirstForm = false;
     }if(this.valFirstForm == true) {
+      this.Username = this.username.value;
+      this.Email = this.email.value;
+      this.Password = this.password.value;
       this.isFirstForm = false;
       this.isSecondForm = true;
     }
@@ -152,6 +183,7 @@ export class RegisterPage {
       this.valBloodGroup = 'Required Field!';
       this.valSecondForm = false;
     }if(this.valSecondForm == true){
+      this.NIC = this.nic.value;
       this.isThirdForm = true;
       this.isSecondForm = false;
     }
@@ -177,26 +209,25 @@ export class RegisterPage {
       this.valThirdForm = false;
     }if(this.valThirdForm==true){
       this.isThirdForm = false;
-      if(this.type == 'seeker'){
+      if(this.type == 'donor'){
         this.user.addUserDonor({
-          username: this.username.value,
-          password: this.password.value,
+          username: this.Username,
+          password: this.Password,
           type: "Donor"
         }).subscribe(
           result => {
-            //this.router.navigate(['slider']);
           }, error => {
             console.log(error);
           }
         );
         this.user.addDonor({
-          username: this.username.value,
-          email: this.email.value,
-          gender: this.gender.value,
-          nic: this.nic.value,
+          username: this.Username,
+          email: this.Email,
+          gender: this.gender,
+          nic: this.NIC,
           blood_group: this.blood_group,
           contact_no: this.contact_number.value,
-          address: this.address,
+          address: this.address.value,
           district: this.district,
           type: "Donor"
         }).subscribe(
@@ -207,8 +238,35 @@ export class RegisterPage {
             console.log(error);
           }
         );
-      }else if(this.type == 'donor'){
+      }else if(this.type == 'seeker'){
+        this.user.addUserSeeker({
+          username: this.Username,
+          password: this.Password,
+          type: "Seeker"
+        }).subscribe(
+          result => {
+          }, error => {
+            console.log(error);
+          }
+        );
+        this.user.addSeeker({
+          username: this.Username,
+          email: this.Email,
+          gender: this.gender,
+          nic: this.NIC,
+          blood_group: this.blood_group,
+          contact_no: this.contact_number.value,
+          address: this.address.value,
+          district: this.district,
+          type: "Donor"
+        }).subscribe(
+          result => {
+            this.alert("You have successfully registered as a seeker!")
 
+          }, error => {
+            console.log(error);
+          }
+        );
       }
     }
   }

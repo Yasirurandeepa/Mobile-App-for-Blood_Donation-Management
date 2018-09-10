@@ -2,6 +2,7 @@ import {Component, ViewChild} from '@angular/core';
 import {AlertController, IonicPage, NavController, NavParams} from 'ionic-angular';
 import {AngularFireAuth} from "angularfire2/auth";
 import {RegisterPage} from "../register/register";
+import {UserProvider} from "../../providers/user/user";
 
 /**
  * Generated class for the SigninPage page.
@@ -17,10 +18,18 @@ import {RegisterPage} from "../register/register";
 })
 export class SigninPage {
 
-  @ViewChild("email") email;
+  @ViewChild("username") username;
   @ViewChild("password") password;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, private fire: AngularFireAuth, private alertCtrl: AlertController) {
+  valUsername: string;
+  valPassword: string;
+
+  valFields: boolean;
+
+  constructor(public navCtrl: NavController, public navParams: NavParams, private fire: AngularFireAuth, private alertCtrl: AlertController,
+              private user: UserProvider) {
+    this.valUsername = '';
+    this.valUsername = '';
   }
 
   ionViewDidLoad() {
@@ -29,7 +38,7 @@ export class SigninPage {
 
   alert(message: string){
     this.alertCtrl.create({
-      title: 'Info!',
+      title: '',
       subTitle: message,
       buttons: ['OK']
     }).present();
@@ -52,6 +61,49 @@ export class SigninPage {
 
   signUpUser(){
     this.navCtrl.push(RegisterPage);
+  }
+
+  login(){
+    this.valUsername = '';
+    this.valPassword = '';
+    this.valFields = true;
+    if(this.username.value==''){
+      this.valUsername = 'Required Field!';
+      this.valFields = false;
+    }if(this.password.value==''){
+      this.valPassword = 'Required Field!';
+      this.valFields = false;
+    }
+    if(this.valFields == true){
+      this.user.searchUser({
+        username: this.username.value,
+        password: this.password.value
+      }).subscribe(
+        result => {
+          if (result.length)  {
+
+            const type = result[0].type;
+
+            if(type=='Admin'){
+            }
+            if(type=='Seeker'){
+              this.alert("You are successfully login as a seeker!")
+            }
+            if(type=='Donor'){
+              this.alert("You are successfully login as a donor!")
+            }
+
+          } else {
+            this.valUsername = '';
+            this.valPassword = 'Username and Password mismatched!!!';
+            this.alert("User not found!");
+          }
+        }, error => {
+          console.log(error);
+          this.alert("Not a valid User!!!");
+        }
+      );
+    }
   }
 
   forgotPassword(){

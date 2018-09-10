@@ -11,12 +11,14 @@
  </div>
   <div class="inputs">
     <ion-item>
-      <ion-input type="text" placeholder="Email" #email></ion-input>
+      <ion-input type="text" placeholder="Username" #username></ion-input>
     </ion-item>
+    <p ion-text color="danger" style="font-size: 8px; font-weight: bold; padding: 0; margin: 0;">{{valUsername}}</p>
     <ion-item class="pass">
       <ion-input type="password" placeholder="Password" #password></ion-input>
     </ion-item>
-    <button ion-button block (click)="signInUser()"><b>Login</b></button>
+    <p ion-text color="danger" style="font-size: 8px; font-weight: bold; padding: 0; margin: 0;">{{valPassword}}</p>
+    <button ion-button block (click)="login()"><b>Login</b></button>
     <button ion-button block (click)="signUpUser()"><b>Register</b></button>
     <button ion-button block (click)="forgotPassword()"><b>Forgot Password</b></button>
     <p text-center="">Forget your Login details?<b>Get Here</b></p>

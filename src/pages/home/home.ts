@@ -53,7 +53,6 @@ export class HomePage {
       text: 'Register',
       handler: data => {
         if(!isNullOrUndefined(data)){
-          console.log(data);
           this.navCtrl.push(RegisterPage, {type: data});
         }else{
           this.alertCtrl.create({

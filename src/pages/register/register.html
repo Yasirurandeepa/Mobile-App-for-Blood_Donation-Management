@@ -34,8 +34,8 @@
       <ion-item>
         <ion-label>Gender</ion-label>
         <ion-select [(ngModel)]="gender" style="color: white;" (ionchange)="filterGender(gender)">
-          <ion-option value="m">Male</ion-option>
-          <ion-option value="f">Female</ion-option>
+          <ion-option value="male">Male</ion-option>
+          <ion-option value="female">Female</ion-option>
         </ion-select>
       </ion-item>
       <p ion-text color="danger" style="font-size: 8px; font-weight: bold; padding: 0; margin: 0;">{{valGender}}</p>

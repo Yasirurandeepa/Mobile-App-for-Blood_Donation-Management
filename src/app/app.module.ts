@@ -16,6 +16,7 @@ import {AboutPage} from "../pages/about/about";
 import {ContactPage} from "../pages/contact/contact";
 import { UserProvider } from '../providers/user/user';
 import {HttpClientModule} from "@angular/common/http";
+import {HttpModule} from "@angular/http";
 
 const firebaseAuth = {
   apiKey: "AIzaSyB7X66peYIx9nhk0o9_tz40V6zY84aLYD8",
@@ -41,7 +42,8 @@ const firebaseAuth = {
     IonicModule.forRoot(MyApp),
     AngularFireModule.initializeApp(firebaseAuth),
     AngularFireAuthModule,
-    HttpClientModule
+    HttpClientModule,
+    HttpModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [
