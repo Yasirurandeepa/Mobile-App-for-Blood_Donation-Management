@@ -142,7 +142,6 @@ export class RegisterPage {
       this.valConfirmPassword = 'Required Field!';
       this.valFirstForm = false;
     }if(this.password.value.length<8){
-      console.log(this.schema.validate(this.password.value, { list: true }));
       this.valPassword = "Password must contain atleast 8 characters";
       this.valFirstForm = false;
     }else if(!this.schema.validate(this.password.value)){
@@ -258,7 +257,7 @@ export class RegisterPage {
           contact_no: this.contact_number.value,
           address: this.address.value,
           district: this.district,
-          type: "Donor"
+          type: "Seeker"
         }).subscribe(
           result => {
             this.alert("You have successfully registered as a seeker!")
