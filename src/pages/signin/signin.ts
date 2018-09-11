@@ -1,10 +1,9 @@
 import {Component, ViewChild} from '@angular/core';
-import {AlertController, App, Events, IonicPage, NavController, NavParams} from 'ionic-angular';
+import {AlertController, App, IonicPage, NavController, NavParams} from 'ionic-angular';
 import {AngularFireAuth} from "angularfire2/auth";
 import {RegisterPage} from "../register/register";
 import {UserProvider} from "../../providers/user/user";
-import {SeekerPage} from "../seeker/seeker";
-import {DonorPage} from "../donor/donor";
+import {UserProfilePage} from "../user-profile/user-profile";
 
 /**
  * Generated class for the SigninPage page.
@@ -75,12 +74,12 @@ export class SigninPage {
             }
             if(type=='Seeker'){
               this.navCtrl.popToRoot();
-              this.appCtrl.getRootNav().setRoot(SeekerPage);
+              this.appCtrl.getRootNav().setRoot(UserProfilePage);
               this.alert("You are successfully login as a seeker!")
             }
             if(type=='Donor'){
               this.navCtrl.popToRoot();
-              this.appCtrl.getRootNav().setRoot(DonorPage);
+              this.appCtrl.getRootNav().setRoot(UserProfilePage);
               this.alert("You are successfully login as a donor!")
             }
 
