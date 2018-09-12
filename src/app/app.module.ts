@@ -20,6 +20,7 @@ import {HttpModule} from "@angular/http";
 import {UserProfilePage} from "../pages/user-profile/user-profile";
 import { SeekerProvider } from '../providers/seeker/seeker';
 import { DonorProvider } from '../providers/donor/donor';
+import {SearchPage} from "../pages/search/search";
 
 const firebaseAuth = {
   apiKey: "AIzaSyB7X66peYIx9nhk0o9_tz40V6zY84aLYD8",
@@ -39,7 +40,8 @@ const firebaseAuth = {
     TabsPage,
     AboutPage,
     ContactPage,
-    UserProfilePage
+    UserProfilePage,
+    SearchPage
   ],
   imports: [
     BrowserModule,
@@ -58,7 +60,8 @@ const firebaseAuth = {
     TabsPage,
     AboutPage,
     ContactPage,
-    UserProfilePage
+    UserProfilePage,
+    SearchPage
   ],
   providers: [
     StatusBar,

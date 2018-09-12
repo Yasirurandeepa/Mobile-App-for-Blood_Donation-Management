@@ -4,6 +4,7 @@ import {AngularFireAuth} from "angularfire2/auth";
 import {RegisterPage} from "../register/register";
 import {UserProvider} from "../../providers/user/user";
 import {UserProfilePage} from "../user-profile/user-profile";
+import {SearchPage} from "../search/search";
 
 /**
  * Generated class for the SigninPage page.
@@ -74,12 +75,12 @@ export class SigninPage {
             }
             if(type=='Seeker'){
               this.navCtrl.popToRoot();
-              this.appCtrl.getRootNav().setRoot(UserProfilePage);
+              this.appCtrl.getRootNav().setRoot(UserProfilePage, {username: this.username.value, type: 'Seeker'});
               this.alert("You are successfully login as a seeker!")
             }
             if(type=='Donor'){
               this.navCtrl.popToRoot();
-              this.appCtrl.getRootNav().setRoot(UserProfilePage);
+              this.appCtrl.getRootNav().setRoot(UserProfilePage, {username: this.username.value, type: 'Donor'});
               this.alert("You are successfully login as a donor!")
             }
 
@@ -97,7 +98,7 @@ export class SigninPage {
   }
 
   forgotPassword() {
-    this.navCtrl.push(UserProfilePage);
+    this.navCtrl.push(SearchPage);
   }
   // forgotPassword(){
   //   this.fire.auth.sendPasswordResetEmail(this.email.value).then(data => {
