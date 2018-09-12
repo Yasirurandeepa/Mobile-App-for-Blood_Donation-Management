@@ -18,6 +18,8 @@ import { UserProvider } from '../providers/user/user';
 import {HttpClientModule} from "@angular/common/http";
 import {HttpModule} from "@angular/http";
 import {UserProfilePage} from "../pages/user-profile/user-profile";
+import { SeekerProvider } from '../providers/seeker/seeker';
+import { DonorProvider } from '../providers/donor/donor';
 
 const firebaseAuth = {
   apiKey: "AIzaSyB7X66peYIx9nhk0o9_tz40V6zY84aLYD8",
@@ -63,6 +65,8 @@ const firebaseAuth = {
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     UserProvider,
+    SeekerProvider,
+    DonorProvider,
   ]
 })
 export class AppModule {}

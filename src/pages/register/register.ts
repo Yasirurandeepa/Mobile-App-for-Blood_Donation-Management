@@ -189,7 +189,7 @@ export class RegisterPage {
   }
 
   filterDistrict(district: any){
-    this.district = this.district;
+    this.district = district;
   }
 
   register(){
