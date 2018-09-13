@@ -98,7 +98,7 @@ export class SigninPage {
   }
 
   forgotPassword() {
-    this.navCtrl.push(SearchPage);
+    this.navCtrl.push(NotificationPage);
   }
   // forgotPassword(){
   //   this.fire.auth.sendPasswordResetEmail(this.email.value).then(data => {

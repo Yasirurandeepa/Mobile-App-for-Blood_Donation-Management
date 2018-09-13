@@ -21,6 +21,9 @@ import {UserProfilePage} from "../pages/user-profile/user-profile";
 import { SeekerProvider } from '../providers/seeker/seeker';
 import { DonorProvider } from '../providers/donor/donor';
 import {SearchPage} from "../pages/search/search";
+import { NotificationProvider } from '../providers/notification/notification';
+import {AcceptedDonorsPage} from "../pages/accepted-donors/accepted-donors";
+import {NotificationPage} from "../pages/notification/notification";
 
 const firebaseAuth = {
   apiKey: "AIzaSyB7X66peYIx9nhk0o9_tz40V6zY84aLYD8",
@@ -41,7 +44,9 @@ const firebaseAuth = {
     AboutPage,
     ContactPage,
     UserProfilePage,
-    SearchPage
+    SearchPage,
+    AcceptedDonorsPage,
+    NotificationPage
   ],
   imports: [
     BrowserModule,
@@ -61,7 +66,9 @@ const firebaseAuth = {
     AboutPage,
     ContactPage,
     UserProfilePage,
-    SearchPage
+    SearchPage,
+    AcceptedDonorsPage,
+    NotificationPage
   ],
   providers: [
     StatusBar,
@@ -70,6 +77,7 @@ const firebaseAuth = {
     UserProvider,
     SeekerProvider,
     DonorProvider,
+    NotificationProvider,
   ]
 })
 export class AppModule {}
