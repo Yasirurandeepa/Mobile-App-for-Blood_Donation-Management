@@ -1,0 +1,73 @@
+<!--
+  Generated template for the NotificationPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-content *ngIf="!seekerSelected">
+
+  <h1 style="color: white; text-align: center;" padding>Notifications</h1>
+
+  <ion-item no-lines *ngFor="let msg of donor_notifications" no-padding style="border-radius: 15%;">
+    <ion-avatar item-start>
+      <img src="../../assets/imgs/blank-avatar.jpg">
+    </ion-avatar>
+    <h2 (click)="showDetails(msg)">Request from {{msg.seeker_username}}</h2>
+    <button ion-button padding (click)="updateDonorNotification(msg.donor_username, msg.seeker_username)" icon-only round color="dark" item-end>
+      <ion-icon name="add"></ion-icon>
+    </button>
+    <button ion-button padding (click)="deleteDonorNotification(msg.donor_username, msg.seeker_username)" icon-only round color="dark" item-end>
+      <ion-icon name="trash"></ion-icon>
+    </button>
+  </ion-item>
+
+</ion-content>
+
+
+<ion-content *ngIf="seekerSelected">
+
+  <h1 style="color: white;" padding-left>Profile</h1>
+
+  <ion-row justify-content-center>
+    <img width="50" height="50" src="../../assets/imgs/blank-avatar.jpg">
+  </ion-row>
+  <ion-input [(ngModel)]="user_name" text-center disabled style="font-size: 20px;"></ion-input>
+
+  <ion-item no-lines text-wrap>
+    <ion-label>Email Address</ion-label>
+    <ion-input type="text" [(ngModel)]="email" disabled></ion-input>
+  </ion-item>
+  <br>
+  <ion-item no-lines>
+    <ion-label>NIC</ion-label>
+    <ion-input type="nic"  [(ngModel)]="nic" disabled></ion-input>
+  </ion-item>
+  <br>
+  <ion-item no-lines>
+    <ion-label>Contact Number</ion-label>
+    <ion-input type="text"  [(ngModel)]="contact_number" disabled></ion-input>
+  </ion-item>
+  <br>
+  <ion-item no-lines>
+    <ion-label>Gender</ion-label>
+    <ion-input type="text"  [(ngModel)]="gender" disabled></ion-input>
+  </ion-item>
+  <br>
+  <ion-item no-lines text-wrap>
+    <ion-label>Blood Group</ion-label>
+    <ion-input type="text" [(ngModel)]="blood_group" disabled></ion-input>
+  </ion-item>
+  <br>
+  <ion-item no-lines>
+    <ion-label>District</ion-label>
+    <ion-input type="nic"  [(ngModel)]="district" disabled></ion-input>
+  </ion-item>
+  <br>
+  <ion-item no-lines>
+    <ion-label>Address</ion-label>
+    <ion-input type="text"  [(ngModel)]="address" disabled></ion-input>
+  </ion-item>
+  <br>
+  <button ion-button padding block (click)="backToNotifications()" color="dark">Back</button>
+</ion-content>
+

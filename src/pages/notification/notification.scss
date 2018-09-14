@@ -1,0 +1,19 @@
+page-notification {
+
+  ion-content{
+    background-image: linear-gradient(black 50%, white);
+  }
+  ion-item{
+    background-color: #424242 !important;
+    color: white !important;
+  }
+  ion-input{
+    color: white !important;
+  }
+  img{
+    border-radius: 50%;
+  }
+  ion-label{
+    color: white !important;
+  }
+}

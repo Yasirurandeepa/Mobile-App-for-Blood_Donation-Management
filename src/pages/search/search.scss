@@ -1,0 +1,19 @@
+page-search {
+  ion-content{
+    background-image: linear-gradient(black 50%, white);
+  }
+  ion-item{
+    background-color: black !important;
+    color: white !important;
+  }
+  ion-input{
+    color: white !important;
+  }
+  ion-img{
+    border-radius: 50%;
+    padding-bottom: 10px;
+  }
+  .button-md{
+    text-transform: none;
+  }
+}

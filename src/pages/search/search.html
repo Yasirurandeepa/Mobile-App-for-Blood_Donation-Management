@@ -1,0 +1,83 @@
+<!--
+  Generated template for the SearchPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <h1 style="color: white; text-align: center;">Search</h1>
+
+</ion-header>
+
+
+<ion-content padding>
+  <ion-row>
+    <ion-item  no-lines>
+      <ion-label>Blood Group</ion-label>
+      <ion-select [(ngModel)]="BloodGroup" (ionChange)="filterBloodGroup(BloodGroup);">
+        <ion-option value="A+">A+</ion-option>
+        <ion-option value="A-">A-</ion-option>
+        <ion-option value="B+">B+</ion-option>
+        <ion-option value="B-">B-</ion-option>
+        <ion-option value="O+">O+</ion-option>
+        <ion-option value="O-">O-</ion-option>
+        <ion-option value="AB+">AB+</ion-option>
+        <ion-option value="AB-">AB-</ion-option>
+      </ion-select>
+    </ion-item>
+  </ion-row>
+  <ion-row>
+    <ion-item no-lines>
+      <ion-label>Distrcit</ion-label>
+      <ion-select [(ngModel)]="District" (ionChange)="filterDistrict(District);">
+        <ion-option value="Ampara">Ampara</ion-option>
+        <ion-option value="Anuradhapura">Anuradhapura</ion-option>
+        <ion-option value="Badulla">Badulla</ion-option>
+        <ion-option value="Batticaloa">Batticaloa</ion-option>
+        <ion-option value="Colombo">Colombo</ion-option>
+        <ion-option value="Galle">Galle</ion-option>
+        <ion-option value="Gampaha">Gampaha</ion-option>
+        <ion-option value="Hambanthota">Hambanthota</ion-option>
+        <ion-option value="Jaffna">Jaffna</ion-option>
+        <ion-option value="Kaluthara">Kaluthara</ion-option>
+        <ion-option value="Kandy">Kandy</ion-option>
+        <ion-option value="Kegalle">Kegalle</ion-option>
+        <ion-option value="Kilinochchi">Kilinochchi</ion-option>
+        <ion-option value="Kurunagala">Kurunagala</ion-option>
+        <ion-option value="Mannar">Mannar</ion-option>
+        <ion-option value="Mathale">Mathale</ion-option>
+        <ion-option value="Mathara">Mathara</ion-option>
+        <ion-option value="Monaragala">Monaragala</ion-option>
+        <ion-option value="Mullathivu">Mullathivu</ion-option>
+        <ion-option value="Nuwara_eliya">Nuwara eliya</ion-option>
+        <ion-option value="Polonnaruwa">Polonnaruwa</ion-option>
+        <ion-option value="Puttalam">Puttalam</ion-option>
+        <ion-option value="Rathnapura">Rathnapura</ion-option>
+        <ion-option value="Trincomalle">Trincomalle</ion-option>
+        <ion-option value="Vavniya">Vavniya</ion-option>
+      </ion-select>
+    </ion-item>
+  </ion-row>
+  <ion-list>
+      <ion-item no-lines *ngFor="let donor of donors" no-padding>
+        <ion-avatar item-start>
+          <img src="../../assets/imgs/blank-avatar.jpg">
+        </ion-avatar>
+        <h2>{{donor.username}}</h2>
+        <ion-icon item-end>
+          <button *ngIf="donor.status == null" ion-button color="dark" (click)="request_donor(donor.username)" icon-start>
+            Request
+            <ion-icon name="share-alt"></ion-icon>
+          </button>
+          <button *ngIf="donor.status == 'Pending'" ion-button color="dark" (click)="cancelRequest(donor.username)">
+            Already Requested
+          </button>
+          <button *ngIf="donor.status == 'Accepted'" ion-button color="dark" (click)="unfriend(donor.username)">
+            <ion-icon name="person" padding></ion-icon>
+            Friends
+          </button>
+        </ion-icon>
+      </ion-item>
+  </ion-list>
+</ion-content>

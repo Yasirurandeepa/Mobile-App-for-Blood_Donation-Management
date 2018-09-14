@@ -1,0 +1,192 @@
+<!--
+  Generated template for the AcceptedDonorsPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-content padding *ngIf="!isDonorSelected">
+
+  <h1 style="color: white; text-align: center;">Accepted Donors</h1>
+
+  <ion-row>
+    <ion-item  class="searchInput" no-lines>
+      <ion-label>Blood Group</ion-label>
+      <ion-select [(ngModel)]="BloodGroup" (ionChange)="filterBloodGroup(BloodGroup);">
+        <ion-option value="A+">A+</ion-option>
+        <ion-option value="A-">A-</ion-option>
+        <ion-option value="B+">B+</ion-option>
+        <ion-option value="B-">B-</ion-option>
+        <ion-option value="O+">O+</ion-option>
+        <ion-option value="O-">O-</ion-option>
+        <ion-option value="AB+">AB+</ion-option>
+        <ion-option value="AB-">AB-</ion-option>
+      </ion-select>
+    </ion-item>
+  </ion-row>
+  <ion-row>
+    <ion-item class="searchInput" no-lines>
+      <ion-label>Distrcit</ion-label>
+      <ion-select [(ngModel)]="District" (ionChange)="filterDistrict(District);">
+        <ion-option value="Ampara">Ampara</ion-option>
+        <ion-option value="Anuradhapura">Anuradhapura</ion-option>
+        <ion-option value="Badulla">Badulla</ion-option>
+        <ion-option value="Batticaloa">Batticaloa</ion-option>
+        <ion-option value="Colombo">Colombo</ion-option>
+        <ion-option value="Galle">Galle</ion-option>
+        <ion-option value="Gampaha">Gampaha</ion-option>
+        <ion-option value="Hambanthota">Hambanthota</ion-option>
+        <ion-option value="Jaffna">Jaffna</ion-option>
+        <ion-option value="Kaluthara">Kaluthara</ion-option>
+        <ion-option value="Kandy">Kandy</ion-option>
+        <ion-option value="Kegalle">Kegalle</ion-option>
+        <ion-option value="Kilinochchi">Kilinochchi</ion-option>
+        <ion-option value="Kurunagala">Kurunagala</ion-option>
+        <ion-option value="Mannar">Mannar</ion-option>
+        <ion-option value="Mathale">Mathale</ion-option>
+        <ion-option value="Mathara">Mathara</ion-option>
+        <ion-option value="Monaragala">Monaragala</ion-option>
+        <ion-option value="Mullathivu">Mullathivu</ion-option>
+        <ion-option value="Nuwara_eliya">Nuwara eliya</ion-option>
+        <ion-option value="Polonnaruwa">Polonnaruwa</ion-option>
+        <ion-option value="Puttalam">Puttalam</ion-option>
+        <ion-option value="Rathnapura">Rathnapura</ion-option>
+        <ion-option value="Trincomalle">Trincomalle</ion-option>
+        <ion-option value="Vavniya">Vavniya</ion-option>
+      </ion-select>
+    </ion-item>
+  </ion-row>
+  <ion-list>
+    <ion-item class="searchInput" no-lines *ngFor="let donor of acceptedDonors" no-padding>
+      <ion-avatar item-start>
+        <img src="../../assets/imgs/blank-avatar.jpg">
+      </ion-avatar>
+      <h2>{{donor.username}}</h2>
+      <ion-icon item-end>
+        <button ion-button color="dark" (click)="showDetails(donor)" icon-end>
+          View
+          <ion-icon name="contact"></ion-icon>
+        </button>
+      </ion-icon>
+    </ion-item>
+  </ion-list>
+</ion-content>
+
+<ion-content *ngIf="isDonorSelected">
+
+  <h1 style="color: white; text-align: center;">Profile</h1>
+
+  <ion-row justify-content-center>
+    <img width="50" height="50" src="../../assets/imgs/face-0.jpg">
+  </ion-row>
+  <ion-input [(ngModel)]="user_name" text-center disabled style="font-size: 20px;"></ion-input>
+
+  <ion-row no-lines justify-content-center *ngFor="let rate of donorOverview" class="searchInput">
+    <ion-row *ngIf="rate.donor_username==user_name" style="color: gold;">
+      Overall Rating: {{rate.num}}
+    </ion-row>
+  </ion-row>
+
+  <div class="rating" *ngIf="rate_value==NULL">
+    <rating text-center [(ngModel)]="rateValue" readOnly="false" max="5" emptyStarIconName="star-outline"
+            halfStarIconName="star-half" starIconName="star" nullable="false" (ngModelChange)="rateDonor(user_name)">
+    </rating>
+  </div>
+
+  <div *ngIf="rate_value!=NULL">
+    <div *ngIf="rate_value==5" class="rateValue">
+      You have rated {{user_name}} as Excellent
+    </div>
+    <div *ngIf="rate_value==4" class="rateValue">
+      You have rated {{user_name}} as Very Good
+    </div>
+    <div *ngIf="rate_value==3" class="rateValue">
+      You have rated {{user_name}} as Normal
+    </div>
+    <div *ngIf="rate_value==2" class="rateValue">
+      You have rated {{user_name}} as Low
+    </div>
+    <div *ngIf="rate_value==1" class="rateValue">
+      You have rated {{user_name}} as Untrusted
+    </div>
+    <br>
+  </div>
+
+  <ion-item class="Item" no-lines text-wrap>
+    <ion-label>Email Address</ion-label>
+    <ion-input type="text" [(ngModel)]="email" disabled></ion-input>
+  </ion-item>
+  <br>
+  <ion-item class="Item" no-lines>
+    <ion-label>NIC</ion-label>
+    <ion-input type="nic"  [(ngModel)]="nic" disabled></ion-input>
+  </ion-item>
+  <br>
+  <ion-item class="Item" no-lines>
+    <ion-label>Contact Number</ion-label>
+    <ion-input type="text"  [(ngModel)]="contact_number" disabled></ion-input>
+  </ion-item>
+  <br>
+  <ion-item class="Item" no-lines>
+    <ion-label>Gender</ion-label>
+    <ion-input type="text"  [(ngModel)]="gender" disabled></ion-input>
+  </ion-item>
+  <br>
+  <ion-item class="Item" no-lines text-wrap>
+    <ion-label>Blood Group</ion-label>
+    <ion-input type="text" [(ngModel)]="blood_group" disabled></ion-input>
+  </ion-item>
+  <br>
+  <ion-item class="Item" no-lines>
+    <ion-label>District</ion-label>
+    <ion-input type="nic"  [(ngModel)]="district" disabled></ion-input>
+  </ion-item>
+  <br>
+  <ion-item class="Item" no-lines>
+    <ion-label>Address</ion-label>
+    <ion-input type="text"  [(ngModel)]="address" disabled></ion-input>
+  </ion-item>
+  <br>
+  <button ion-button padding block (click)="backToNotifications()" color="dark">Back</button>
+
+
+</ion-content>
+
+<!--<ion-content padding>-->
+
+  <!--<ion-card>-->
+
+    <!--<ion-item>-->
+      <!--<ion-avatar item-start>-->
+        <!--<img src="../../assets/imgs/blank-avatar.jpg">-->
+      <!--</ion-avatar>-->
+      <!--<h2>Marty McFly</h2>-->
+      <!--<p>November 5, 1955</p>-->
+    <!--</ion-item>-->
+
+    <!--<ion-card-content>-->
+      <!--<p>Wait a minute. Wait a minute, Doc. Uhhh... Are you telling me that you built a time machine... out of a DeLorean?! Whoa. This is heavy.</p>-->
+    <!--</ion-card-content>-->
+
+    <!--<ion-row>-->
+      <!--<ion-col>-->
+        <!--<button ion-button icon-start clear small>-->
+          <!--<ion-icon name="thumbs-up"></ion-icon>-->
+          <!--<div>12 Likes</div>-->
+        <!--</button>-->
+      <!--</ion-col>-->
+      <!--<ion-col>-->
+        <!--<button ion-button icon-start clear small>-->
+          <!--<ion-icon name="text"></ion-icon>-->
+          <!--<div>4 Comments</div>-->
+        <!--</button>-->
+      <!--</ion-col>-->
+      <!--<ion-col center text-center>-->
+        <!--<ion-note>-->
+          <!--11h ago-->
+        <!--</ion-note>-->
+      <!--</ion-col>-->
+    <!--</ion-row>-->
+
+  <!--</ion-card>-->
+
+<!--</ion-content>-->
