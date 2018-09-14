@@ -26,6 +26,8 @@ import {AcceptedDonorsPage} from "../pages/accepted-donors/accepted-donors";
 import {NotificationPage} from "../pages/notification/notification";
 import { RateProvider } from '../providers/rate/rate';
 
+import { Ionic2RatingModule } from 'ionic2-rating';
+
 const firebaseAuth = {
   apiKey: "AIzaSyB7X66peYIx9nhk0o9_tz40V6zY84aLYD8",
   authDomain: "blood-77479.firebaseapp.com",
@@ -55,7 +57,8 @@ const firebaseAuth = {
     AngularFireModule.initializeApp(firebaseAuth),
     AngularFireAuthModule,
     HttpClientModule,
-    HttpModule
+    HttpModule,
+    Ionic2RatingModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [
