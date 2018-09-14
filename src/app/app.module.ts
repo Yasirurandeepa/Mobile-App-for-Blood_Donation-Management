@@ -24,6 +24,7 @@ import {SearchPage} from "../pages/search/search";
 import { NotificationProvider } from '../providers/notification/notification';
 import {AcceptedDonorsPage} from "../pages/accepted-donors/accepted-donors";
 import {NotificationPage} from "../pages/notification/notification";
+import { RateProvider } from '../providers/rate/rate';
 
 const firebaseAuth = {
   apiKey: "AIzaSyB7X66peYIx9nhk0o9_tz40V6zY84aLYD8",
@@ -78,6 +79,7 @@ const firebaseAuth = {
     SeekerProvider,
     DonorProvider,
     NotificationProvider,
+    RateProvider,
   ]
 })
 export class AppModule {}

@@ -5,6 +5,8 @@ import {RegisterPage} from "../register/register";
 import {UserProvider} from "../../providers/user/user";
 import {UserProfilePage} from "../user-profile/user-profile";
 import {SearchPage} from "../search/search";
+import {NotificationPage} from "../notification/notification";
+import {AcceptedDonorsPage} from "../accepted-donors/accepted-donors";
 
 /**
  * Generated class for the SigninPage page.
@@ -98,7 +100,7 @@ export class SigninPage {
   }
 
   forgotPassword() {
-    this.navCtrl.push(NotificationPage);
+    this.navCtrl.push(AcceptedDonorsPage);
   }
   // forgotPassword(){
   //   this.fire.auth.sendPasswordResetEmail(this.email.value).then(data => {
