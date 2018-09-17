@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import {AlertController, IonicPage, NavController, NavParams} from 'ionic-angular';
 import {SeekerProvider} from "../../providers/seeker/seeker";
 import {RateProvider} from "../../providers/rate/rate";
+import {MessagePage} from "../message/message";
 
 /**
  * Generated class for the AcceptedDonorsPage page.
@@ -87,7 +88,6 @@ export class AcceptedDonorsPage {
   getDonorOverview(){                                           //Get the overall ratings of the accepted donors
     this.rate.getDonorRates().subscribe(
       donorRates => {
-        console.log(donorRates);
         this.donorOverview = donorRates;
       },
       error => {
@@ -149,4 +149,9 @@ export class AcceptedDonorsPage {
     this.isDonorSelected = false;
   }
 
+  sendMessage(donor_username: any){
+    this.navCtrl.push(MessagePage, {donor_username: donor_username});
+  }
+
 }
+

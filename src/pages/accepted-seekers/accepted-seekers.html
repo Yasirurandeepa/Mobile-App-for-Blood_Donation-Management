@@ -4,9 +4,9 @@
   See http://ionicframework.com/docs/components/#navigation for more info on
   Ionic pages and navigation.
 -->
-<ion-content padding *ngIf="!isDonorSelected">
+<ion-content padding *ngIf="!isSeekerSelected">
 
-  <h1 style="color: white; text-align: center;">Accepted Donors</h1>
+  <h1 style="color: white; text-align: center;">Accepted Seekers</h1>
 
   <ion-row>
     <ion-item  class="searchInput" no-lines>
@@ -56,17 +56,17 @@
     </ion-item>
   </ion-row>
   <ion-list>
-    <ion-item class="searchInput" no-lines *ngFor="let donor of acceptedDonors" no-padding>
+    <ion-item class="searchInput" no-lines *ngFor="let seeker of acceptedSeekers" no-padding>
       <ion-avatar item-start>
         <img src="../../assets/imgs/blank-avatar.jpg">
       </ion-avatar>
-      <h2>{{donor.username}}</h2>
+      <h2>{{seeker.username}}</h2>
       <ion-icon item-end>
-        <button ion-button small color="dark" (click)="showDetails(donor)" icon-end>
+        <button ion-button small color="dark" (click)="showDetails(seeker)" icon-end>
           View
           <ion-icon name="contact"></ion-icon>
         </button>
-        <button ion-button small color="dark" (click)="sendMessage(donor.username)" icon-end>
+        <button ion-button small color="dark" (click)="sendMessage(seeker.username)" icon-end>
           Message
           <ion-icon name="chatboxes"></ion-icon>
         </button>
@@ -75,7 +75,7 @@
   </ion-list>
 </ion-content>
 
-<ion-content *ngIf="isDonorSelected">
+<ion-content *ngIf="isSeekerSelected">
 
   <h1 style="color: white; text-align: center;">Profile</h1>
 
@@ -84,36 +84,6 @@
   </ion-row>
   <ion-input [(ngModel)]="user_name" text-center disabled style="font-size: 20px;"></ion-input>
 
-  <ion-row no-lines justify-content-center *ngFor="let rate of donorOverview" class="searchInput">
-    <ion-row *ngIf="rate.donor_username==user_name" style="color: gold;">
-      Overall Rating: {{rate.num}}
-    </ion-row>
-  </ion-row>
-
-  <div class="rating" *ngIf="rate_value==NULL">
-    <rating text-center [(ngModel)]="rateValue" readOnly="false" max="5" emptyStarIconName="star-outline"
-            halfStarIconName="star-half" starIconName="star" nullable="false" (ngModelChange)="rateDonor(user_name)">
-    </rating>
-  </div>
-
-  <div *ngIf="rate_value!=NULL">
-    <div *ngIf="rate_value==5" class="rateValue">
-      You have rated {{user_name}} as Excellent
-    </div>
-    <div *ngIf="rate_value==4" class="rateValue">
-      You have rated {{user_name}} as Very Good
-    </div>
-    <div *ngIf="rate_value==3" class="rateValue">
-      You have rated {{user_name}} as Normal
-    </div>
-    <div *ngIf="rate_value==2" class="rateValue">
-      You have rated {{user_name}} as Low
-    </div>
-    <div *ngIf="rate_value==1" class="rateValue">
-      You have rated {{user_name}} as Untrusted
-    </div>
-    <br>
-  </div>
 
   <ion-item class="Item" no-lines text-wrap>
     <ion-label>Email Address</ion-label>

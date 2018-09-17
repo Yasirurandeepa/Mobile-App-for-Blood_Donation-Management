@@ -1,17 +1,16 @@
 <ion-menu [content]="content">
+
   <ion-header>
-    <ion-toolbar>
-      <ion-title>Menu</ion-title>
-    </ion-toolbar>
+    <ion-card text-center style="background-image: linear-gradient(black 50%, gray);">
+      <h1 style="color: white;">Blood Donation Management System</h1>
+    </ion-card>
   </ion-header>
 
   <ion-content style="background-image: linear-gradient(black 50%, white);">
-    <ion-list>
-      <button menuClose ion-item *ngFor="let p of pages" (click)="openPage(p)">
-        <ion-icon name="{{p.icon}}" padding></ion-icon>
+      <button no-lines no-padding menuClose ion-item *ngFor="let p of pages" (click)="openPage(p)" style="background-color: black !important; color: white !important;">
+        <ion-icon large name="{{p.icon}}" padding></ion-icon>
         {{p.title}}
       </button>
-    </ion-list>
   </ion-content>
 
 </ion-menu>

@@ -27,6 +27,8 @@ import {NotificationPage} from "../pages/notification/notification";
 import { RateProvider } from '../providers/rate/rate';
 
 import { Ionic2RatingModule } from 'ionic2-rating';
+import {MessagePage} from "../pages/message/message";
+import {AcceptedSeekersPage} from "../pages/accepted-seekers/accepted-seekers";
 
 const firebaseAuth = {
   apiKey: "AIzaSyB7X66peYIx9nhk0o9_tz40V6zY84aLYD8",
@@ -49,7 +51,9 @@ const firebaseAuth = {
     UserProfilePage,
     SearchPage,
     AcceptedDonorsPage,
-    NotificationPage
+    AcceptedSeekersPage,
+    NotificationPage,
+    MessagePage
   ],
   imports: [
     BrowserModule,
@@ -72,7 +76,9 @@ const firebaseAuth = {
     UserProfilePage,
     SearchPage,
     AcceptedDonorsPage,
-    NotificationPage
+    AcceptedSeekersPage,
+    NotificationPage,
+    MessagePage
   ],
   providers: [
     StatusBar,

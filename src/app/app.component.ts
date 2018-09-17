@@ -10,6 +10,9 @@ import {TabsPage} from "../pages/tabs/tabs";
 import {RegisterPage} from "../pages/register/register";
 import {UserProfilePage} from "../pages/user-profile/user-profile";
 import {SigninPage} from "../pages/signin/signin";
+import {UserProvider} from "../providers/user/user";
+import {SearchPage} from "../pages/search/search";
+import {AcceptedDonorsPage} from "../pages/accepted-donors/accepted-donors";
 
 const config = {
   apiKey: "AIzaSyB7X66peYIx9nhk0o9_tz40V6zY84aLYD8",
@@ -43,9 +46,18 @@ export class MyApp {
 
     this.pages = [
       { title: 'User Profile', component: UserProfilePage, icon: 'ios-person' },
-      { title: 'Search', component: SigninPage, icon: 'ios-search' },
-      { title: 'Accepted Donors', component: RegisterPage, icon: 'ios-key' }
+      { title: 'Search', component: SearchPage, icon: 'ios-search' },
+      { title: 'Accepted Donors', component: AcceptedDonorsPage, icon: 'ios-key' }
     ];
+    // else{
+    //   this.pages = [
+    //     { title: 'User Profile', component: UserProfilePage, icon: 'ios-person' },
+    //     { title: 'Notifications', component: SigninPage, icon: 'ios-search' },
+    //     { title: 'Accepted Seekers', component: RegisterPage, icon: 'ios-key' }
+    //   ];
+    // }
+
+
   }
 
   openPage(page) {

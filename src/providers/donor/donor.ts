@@ -34,4 +34,9 @@ export class DonorProvider {
       .map(res => res.json());
   }
 
+  getAcceptedSeekers(data) {           // get accepted donor details
+    return this.http.post('http://localhost:3000/show_accepted_seekers', JSON.stringify(data),
+      new RequestOptions({headers: new Headers({'Content-Type': 'application/json'})})).map(res => res.json());
+  }
+
 }

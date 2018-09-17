@@ -1,0 +1,27 @@
+page-accepted-seekers {
+
+  ion-content{
+    background-image: linear-gradient(black 50%, white);
+  }
+  .Item{
+    background-color: #424242 !important;
+    color: white !important;
+  }
+  ion-input{
+    color: white !important;
+  }
+  img{
+    border-radius: 50%;
+  }
+  ion-label{
+    color: white !important;
+  }
+  .searchInput{
+    background-color: black !important;
+    color: white !important;
+  }
+  .button-md{
+    text-transform: none;
+  }
+
+}

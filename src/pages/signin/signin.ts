@@ -7,6 +7,7 @@ import {UserProfilePage} from "../user-profile/user-profile";
 import {SearchPage} from "../search/search";
 import {NotificationPage} from "../notification/notification";
 import {AcceptedDonorsPage} from "../accepted-donors/accepted-donors";
+import {AcceptedSeekersPage} from "../accepted-seekers/accepted-seekers";
 
 /**
  * Generated class for the SigninPage page.

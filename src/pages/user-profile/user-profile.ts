@@ -4,6 +4,7 @@ import {SeekerProvider} from "../../providers/seeker/seeker";
 import {DonorProvider} from "../../providers/donor/donor";
 import * as EmailValidator from 'email-validator';
 import {HomePage} from "../home/home";
+import {UserProvider} from "../../providers/user/user";
 
 /**
  * Generated class for the UserProfilePage page.
